@@ -8,7 +8,7 @@ def test_task_initialization() -> None:
         description="Complete the final report for submission",
         due_date="2025-11-01",
         tags=["work", "urgent"],
-        status="Pendxing",
+        status="Pending",
         folder="Office"
     )
 
@@ -17,7 +17,7 @@ def test_task_initialization() -> None:
     assert task.due_date == "2025-11-01"
     assert task.tags == ["work", "urgent"]
     assert task.status == "Pending"
-    assert task.folder == "Office"
+    assert task.folder == "Office"  
 
 
 def test_to_dict_and_from_dict() -> None:
