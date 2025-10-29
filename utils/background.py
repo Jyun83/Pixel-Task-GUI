@@ -4,7 +4,7 @@ import threading
 
 from typing import Optional, Set
 from task_manager import TaskManager
-from helpers import notify_due_tasks
+from .helpers import notify_due_tasks
 
 def start_background_notifier(
     manager: TaskManager,
