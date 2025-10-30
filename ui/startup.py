@@ -20,7 +20,7 @@ def show_startup() -> None:
     # Render the ASCII banner
     f = Figlet(font="standard")
     banner = f.renderText("Task Manager")
-    console.print(f"[bold cyan]{type(banner)}[/bold cyan]")
+    console.print(f"[bold cyan]{(banner)}[/bold cyan]")
 
     # Welcome message
     console.print("[bold white]Welcome to your personal task dashboard![/bold white]")
