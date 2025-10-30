@@ -3,7 +3,7 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 
-class Task:
+class Task():
     """
     Represents a task with title, description, due date, tags, status, and folder.
     """
@@ -13,7 +13,7 @@ class Task:
         description: str, 
         due_date: str,
         tags: Optional[List[str]] = None, 
-        status: str ="Pending", 
+        status: str ="Not Yet", 
         folder: Optional[str] = None
     ) -> None:
         """
@@ -27,6 +27,20 @@ class Task:
             status (str, optional): The current status of the task (e.g., 'Pending', 'Completed'). Defaults to "Pending".
             folder (str, optional): The folder name this task belongs to. Defaults to None.
         """
+        if not title.strip():
+            raise ValueError("Title can not be empty")
+        
+        if due_date:
+            try:
+                datetime.strptime(due_date, "%Y-%m-%d")
+
+            except ValueError:
+                raise ValueError("Due date must be in YYYY-MM-DD format")
+            
+        
+        if status not in ("Not Yet", "Pending", "Completed"):
+            raise ValueError(f"Status: {status} is invalid")
+        
         self.title = title
         self.description = description
         self.due_date = due_date 
