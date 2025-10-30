@@ -2,7 +2,6 @@ from InquirerPy import inquirer
 
 from rich.console import Console
 from rich.panel import Panel
-from rich.table import Table
 from rich.prompt import Prompt
 
 from utils.helpers import clear_screen
@@ -11,6 +10,7 @@ from task_manager import TaskManager
 
 console = Console()
 manager = TaskManager()
+
 def show_simple_task_list() -> None:
     """
     Display a simple list of all tasks with only title, due date, and status.
@@ -34,12 +34,11 @@ def show_simple_task_list() -> None:
     
     input("\nPress [Enter] to return...")
 
-def update_status_interface() -> None:
+def delete_task_interface() -> None:
     """
-    Allows user to update the status of a specific task.
+    Allows user to delete a selected task.
     """
     clear_screen()
-
     task_titles = [t.title for t in manager.view_tasks()]
     if not task_titles:
         console.print("[yellow]No tasks found.[/yellow]")
@@ -54,8 +53,6 @@ def update_status_interface() -> None:
         multiselect=False,
         height=10,
     ).execute()
-
-
     task = manager.find_task(title)
 
     if not task:
@@ -63,35 +60,38 @@ def update_status_interface() -> None:
         input("\nPress [Enter] to return...")
         return
 
-
-    new_status = inquirer.select( #type: ignore
-        message =  "Enter new status (Pending/In Progress/Completed)", 
-        choices = ["Not Yet", "Pending", "Completed"],
-        default=task.status
+    confirm = inquirer.confirm(  # type: ignore
+        message=f"Are you sure you want to delete '{title}'?",
+        default=False,
     ).execute()
-    manager.edit_task(task.title, {"status": new_status})
-    console.print("[green]Task status updated successfully![/green]")
+
+    if confirm:
+        manager.delete_task(title)
+        console.print("[green]Task deleted successfully![/green]")
+    else:
+        console.print("[yellow]Deletion cancelled.[/yellow]")
+
     input("\nPress [Enter] to return...")
 
-def update_menu() -> None:
+def del_menu() -> None:
     """
-    Displays the update menu interface for viewing and updating task statuses.
+    Displays the delete menu interface for viewing and deleting tasks.
     """
     clear_screen()
     while True:
         console.print(Panel(
-            "[bold cyan]Update Menu[/bold cyan]\n"
+            "[bold cyan]Delete Menu[/bold cyan]\n"
             "1. View All Tasks\n"
-            "2. Update Task Status\n"
+            "2. Delete Tasks\n"
             "3. Back",
         ))
-
         choice = Prompt.ask("Select an option")
         if choice == "1":
             show_simple_task_list()
-
         elif choice == "2":
-            update_status_interface()
+            delete_task_interface()
+            clear_screen()
+            break
         elif choice == "3":
             break
         else:
