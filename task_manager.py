@@ -87,6 +87,8 @@ class TaskManager:
         Returns:
             list: A list of Task objects.
         """
+        self.tasks = self.load_tasks()
+        
         if not filter_by:
             return self.tasks
         return [t for t in self.tasks if getattr(t, filter_by[0]) == filter_by[1]]
