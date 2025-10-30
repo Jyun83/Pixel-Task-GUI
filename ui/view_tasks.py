@@ -85,6 +85,7 @@ def view_tasks_interface() -> None:
     # View Details for a specific task
     view_more = inquirer.confirm(# type: ignore
         message = "View Details for a specific task").execute()
+    
     while view_more:
 
         title = Prompt.ask("[bold white]Enter the title of the task to view[/bold white]")
