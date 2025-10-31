@@ -1,0 +1,26 @@
+project/
+├── task_manager.py              # Core logic for managing tasks (add, edit, delete, view)
+├── task.py                      # Task class with attributes and methods like is_due_soon()
+├── notifier.py                  # Handles desktop notifications
+├── menu_bar.py                  # macOS menu bar app (using rumps)
+├── menu_cli.py
+├── menu_gui.py
+│
+├── assets/
+│   ├── .ttf
+│   ├── .wav
+│
+├── utils/
+│   ├── helpers.py               # Helper functions (e.g., clear_screen)
+│   └── background.py            # Background thread for notifications
+│
+├── ui/
+│   ├── add_task.py              # CLI interface for adding tasks
+│   ├── view_tasks.py            # CLI interface for viewing and filtering tasks
+│   ├── update_menu.py           # Interface for updating task statuses
+│   ├── edit_task.py             # Interface for editing existing tasks
+│   ├── delete_task.py           # Interface for deleting tasks
+│   ├── check_deadline.py        # Interface for showing due/overdue tasks
+│   └── __init__.py              # Marks this directory as a package
+│
+├── tasks.json                   # Data file storing all tasks
