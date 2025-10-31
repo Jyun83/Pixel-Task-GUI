@@ -8,13 +8,14 @@ from utils.helpers import clear_screen
 from task_manager import TaskManager
 
 console = Console()
-manager = TaskManager()
 
 def edit_task_details_interface() -> None:
     """
     Interface for editing an existing task’s details.
     """
     clear_screen()
+    manager = TaskManager()
+
     console.print(Panel("[bold cyan]Edit Task Details[/bold cyan]", border_style="cyan"))
 
     title = Prompt.ask("Enter the title of the task to edit")

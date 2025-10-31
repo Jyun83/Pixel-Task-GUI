@@ -1,0 +1,90 @@
+[
+    {
+        "title": "Finish Assignment 1",
+        "description": "Write report for Python project",
+        "due_date": "2025-10-31",
+        "tags": [],
+        "status": "Pending",
+        "folder": null
+    },
+    {
+        "title": "Buy Groceries",
+        "description": "Buy milk, eggs, and bread",
+        "due_date": "2025-11-01",
+        "tags": [],
+        "status": "Pending",
+        "folder": null
+    },
+    {
+        "title": "Submit Research Paper",
+        "description": "Submit to academic portal",
+        "due_date": "2025-10-25",
+        "tags": [],
+        "status": "Pending",
+        "folder": null
+    },
+    {
+        "title": "Clean Apartment",
+        "description": "Weekend cleaning session",
+        "due_date": "2025-11-10",
+        "tags": [],
+        "status": "Not Yet",
+        "folder": null
+    },
+    {
+        "title": "Prepare Presentation Slides",
+        "description": "Create slides for Monday meeting",
+        "due_date": "2025-11-01",
+        "tags": [],
+        "status": "Pending",
+        "folder": null
+    },
+    {
+        "title": "Pay Internet Bill",
+        "description": "Pay TM monthly broadband bill",
+        "due_date": "2025-10-29",
+        "tags": [],
+        "status": "Completed",
+        "folder": null
+    },
+    {
+        "title": "TestCLI",
+        "description": "",
+        "due_date": "2025-11-01",
+        "tags": [],
+        "status": "Pending",
+        "folder": null
+    },
+    {
+        "title": "TestCLI2",
+        "description": "",
+        "due_date": "2025-11-01",
+        "tags": [],
+        "status": "Not Yet",
+        "folder": null
+    },
+    {
+        "title": "TestCLI3",
+        "description": "",
+        "due_date": "2025-11-11",
+        "tags": [],
+        "status": "Not Yet",
+        "folder": null
+    },
+    {
+        "title": "Test01",
+        "description": "",
+        "due_date": "2025-12-11",
+        "tags": [],
+        "status": "Not Yet",
+        "folder": null
+    },
+    {
+        "title": "Test-3",
+        "description": "",
+        "due_date": "2025-12-12",
+        "tags": [],
+        "status": "Not Yet",
+        "folder": null
+    }
+]
