@@ -25,7 +25,9 @@ def start_background_notifier(
         None
     """
     notified: Set[str] = set()  # Keep track of tasks already notified
-
+    
     while stop_flag is None or not stop_flag.is_set():
+        manager = TaskManager()
+        manager.load_tasks()
         notify_due_tasks(manager, notified)
         time.sleep(interval)

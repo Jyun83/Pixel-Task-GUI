@@ -13,5 +13,5 @@ def send_notification(title: str, message: str) -> None:
     """
     subprocess.run([
         "osascript", "-e",
-        f'display notification "{message}" with title "{title}"'
+        f'display notification "{message}" with title "{title}" sound name "Ping" '
     ])

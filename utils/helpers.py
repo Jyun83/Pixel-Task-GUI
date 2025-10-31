@@ -1,4 +1,5 @@
 import os
+import time
 
 from typing import Optional, Set
 from task_manager import TaskManager
@@ -31,7 +32,8 @@ def notify_due_tasks(manager: TaskManager, notified: Optional[Set[str]] = None) 
     for task in manager.tasks:
         if task.due_date and task.is_not_completed():
             # Notify overdue tasks
-            if task.is_overdue() and task.title not in notified:
+            # Modification  if task.is_overdue() and task.title not in notified: 
+            if task.is_overdue():
                 send_notification(
                     "Overdue Task",
                     f"'{task.title}' is past due! ({task.due_date})"
@@ -39,9 +41,11 @@ def notify_due_tasks(manager: TaskManager, notified: Optional[Set[str]] = None) 
                 notified.add(task.title)
 
             # Notify tasks due soon (1 day before)
-            elif task.is_due_soon(1) and task.title not in notified:
+            # Modification  elif task.is_due_soon(1) and task.title not in notified: 
+            elif task.is_due_soon(1):
                 send_notification(
                     "Task Reminder",
                     f"'{task.title}' is due tomorrow! ({task.due_date})"
                 )
-                notified.add(task.title)
+                notified.add(task.title) # This doen't have any affect now. 
+        time.sleep(5)

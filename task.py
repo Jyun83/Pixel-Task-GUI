@@ -97,8 +97,8 @@ class Task():
         """
 
         if self.due_date:
-            due = datetime.strptime(self.due_date, "%Y-%m-%d")
-            now = datetime.now()
+            due = datetime.strptime(self.due_date, "%Y-%m-%d").date()
+            now = datetime.now().date()
             return (due - now).days <= days
         return False
         

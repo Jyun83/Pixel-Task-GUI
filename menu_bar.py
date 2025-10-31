@@ -23,6 +23,7 @@ class TaskMenuBar(rumps.App):
         """Initialize the menu bar application and its attributes."""
         super(TaskMenuBar, self).__init__("Tasks", quit_button=None) # type: ignore
         self.manager: TaskManager = TaskManager()
+        self.icon: str = "assets/menu_bar_icon.png"
         self.notification_on: bool = False
         self.bg_thread: Optional[threading.Thread] = None
 
@@ -91,11 +92,11 @@ class TaskMenuBar(rumps.App):
         """Run background checks for due tasks every few minutes."""
         while self.notification_on:
             try:
-                start_background_notifier(self.manager)
                 print("Checking tasks in background...")
+                start_background_notifier(self.manager)
+                
             except Exception as e:
                 print(f"[Error in notifier] {e}")
-            time.sleep(120)  # Check every 2 minutes
 
     @rumps.clicked("Quit")
     def quit_app(self, _: rumps.MenuItem) -> None:

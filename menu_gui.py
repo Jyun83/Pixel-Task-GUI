@@ -50,7 +50,7 @@ font_path = os.path.join(os.path.dirname(__file__), "assets/DisposableDroidBB.tt
 FONT_NAME = "Menlo"
 
 # --- Define the icon file name ---
-ICON_FILE = "app_icon.png" 
+ICON_FILE = "assets/app_icon.png" 
 # ---------------------------------
 
 # --- Define the loading duration in milliseconds ---
