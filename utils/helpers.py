@@ -4,6 +4,10 @@ from typing import Optional, Set
 from task_manager import TaskManager
 from notifier import send_notification
 
+def back_to_desktop():
+    os.system('osascript -e \'tell application "System Events" to set visible of every process whose visible is true and name is not "Finder" to false\'')
+
+
 def clear_screen():
     # os.system('cls' if os.name == 'nt' else 'clear')  for other mac users
     os.system('clear')
