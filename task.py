@@ -99,7 +99,7 @@ class Task():
         if self.due_date:
             due = datetime.strptime(self.due_date, "%Y-%m-%d").date()
             now = datetime.now().date()
-            return (due - now).days <= days
+            return  0 <= (due - now).days <= days
         return False
         
     def is_overdue(self) -> bool:

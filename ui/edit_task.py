@@ -18,7 +18,7 @@ def edit_task_details_interface() -> None:
     console.print(Panel("[bold cyan]Edit Task Details[/bold cyan]", border_style="cyan"))
 
     title = Prompt.ask("Enter the title of the task to edit")
-    task = manager.find_task(title)
+    task = manager.find_task(str(title))
 
     if not task:
         console.print("[red]Task not found.[/red]")
