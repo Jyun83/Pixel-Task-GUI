@@ -29,6 +29,7 @@ class TaskMenuBar(rumps.App):
         # Define menu items displayed in the macOS menu bar.
         self.menu = [
             "Open CLI Task Manager",
+            "Open GUI Task Manager",
             "Turn On Notifications",
             None,
             "Quit",
@@ -44,6 +45,19 @@ class TaskMenuBar(rumps.App):
         """
         try:
             subprocess.Popen(["python3", "menu_cli.py"], start_new_session=True)
+        except FileNotFoundError:
+            rumps.alert("Error", "cli.py not found. Please check the file path.")
+   
+    @rumps.clicked("Open GUI Task Manager")
+    def open_gui(self, _: rumps.MenuItem) -> None:
+        """Open the GUI version of the task manager in a new subprocess.
+
+        Args:
+            _: rumps.MenuItem
+                The clicked menu item (unused, but required by the decorator).
+        """
+        try:
+            subprocess.Popen(["python3", "menu_gui.py"], start_new_session=True)
         except FileNotFoundError:
             rumps.alert("Error", "GUI.py not found. Please check the file path.")
 
