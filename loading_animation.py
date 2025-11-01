@@ -185,7 +185,7 @@ class PixelLoadingOverlay(QWidget):
 
     # ---------------------------------------------------------------------
 
-    def closeEvent(self, event) -> None: 
+    def closeEvent(self, event) -> None:  # type: ignore
         """Ensures all timers and animations stop before closing."""
         self._on_fade_finished()
         event.accept()
